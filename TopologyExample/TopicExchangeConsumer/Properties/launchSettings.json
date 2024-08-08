@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "TopicExchangeConsumer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:52938;http://localhost:52939"
+    }
+  }
+}
