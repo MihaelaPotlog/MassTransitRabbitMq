@@ -4,7 +4,6 @@ using PolymorphicRoutingV2Consumer.Consumers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMassTransit(x =>
 {
   x.UsingRabbitMq((context, cfg) =>
@@ -15,7 +14,7 @@ builder.Services.AddMassTransit(x =>
 
       x.Consumer<WebsitePayProcessedConsumer>();
 
-      x.Bind("Contracts.WebsitePayProcessed");
+      x.Bind("Contracts.WebsitePayProcessedffgds");
     });
 
 
@@ -48,13 +47,6 @@ builder.Services.AddMassTransit(x =>
 
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-  app.UseSwagger();
-  app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 

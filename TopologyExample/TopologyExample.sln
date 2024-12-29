@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "Consumer\Consumer.csproj", "{697F695F-CA39-4B6A-A4A0-E25D5F685BED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer", "Producer\Producer.csproj", "{3D81F66F-3C10-4B07-AC60-27EAB4BEB574}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopicExchangeConsumer", "TopicExchangeConsumer\TopicExchangeConsumer.csproj", "{EB86222D-DB41-40B6-B932-35CA5DAE0E0E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{50FF9E8D-8115-4E47-A585-08E4DBDCF966}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolymorphicRoutingConsumer", "PolymorphicRoutingConsumer\PolymorphicRoutingConsumer.csproj", "{3F84676F-4744-4CF4-A962-50982010FF11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolymorphicRoutingConsumer", "PolymorphicRoutingConsumer\PolymorphicRoutingConsumer.csproj", "{3F84676F-4744-4CF4-A962-50982010FF11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolymorphicRoutingV2Consumer", "PolymorphicRoutingV2Consumer\PolymorphicRoutingV2Consumer.csproj", "{A3DF9BF5-B052-4EFE-98FA-C84A2F7D3398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolymorphicRoutingV2Consumer", "PolymorphicRoutingV2Consumer\PolymorphicRoutingV2Consumer.csproj", "{A3DF9BF5-B052-4EFE-98FA-C84A2F7D3398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeaderExchangeConsumer", "HeaderExchangeConsumer\HeaderExchangeConsumer.csproj", "{9DB5C96B-6DBD-4D65-BD9B-858A83B84096}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeaderExchangeConsumer", "HeaderExchangeConsumer\HeaderExchangeConsumer.csproj", "{9DB5C96B-6DBD-4D65-BD9B-858A83B84096}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultTopologyProducer", "DefaultTopology\DefaultTopologyProducer.csproj", "{E754050E-B2D7-4EE9-8107-847CBE92AE61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultTopologyConsumer", "DefaultTopologyConsumer\DefaultTopologyConsumer.csproj", "{4DBA5B5B-2DFB-41D8-97AF-600D867F7483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefaultTopology", "DefaultTopology", "{7F730FB6-BF85-4E15-9DBE-2C3F46DDF45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandConsumer", "CommandConsumer\CommandConsumer.csproj", "{854C21FE-81C1-47ED-AB4C-47B5A162E0E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{697F695F-CA39-4B6A-A4A0-E25D5F685BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{697F695F-CA39-4B6A-A4A0-E25D5F685BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{697F695F-CA39-4B6A-A4A0-E25D5F685BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{697F695F-CA39-4B6A-A4A0-E25D5F685BED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D81F66F-3C10-4B07-AC60-27EAB4BEB574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D81F66F-3C10-4B07-AC60-27EAB4BEB574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D81F66F-3C10-4B07-AC60-27EAB4BEB574}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +49,18 @@ Global
 		{9DB5C96B-6DBD-4D65-BD9B-858A83B84096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DB5C96B-6DBD-4D65-BD9B-858A83B84096}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DB5C96B-6DBD-4D65-BD9B-858A83B84096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E754050E-B2D7-4EE9-8107-847CBE92AE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E754050E-B2D7-4EE9-8107-847CBE92AE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E754050E-B2D7-4EE9-8107-847CBE92AE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E754050E-B2D7-4EE9-8107-847CBE92AE61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBA5B5B-2DFB-41D8-97AF-600D867F7483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBA5B5B-2DFB-41D8-97AF-600D867F7483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBA5B5B-2DFB-41D8-97AF-600D867F7483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBA5B5B-2DFB-41D8-97AF-600D867F7483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{854C21FE-81C1-47ED-AB4C-47B5A162E0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854C21FE-81C1-47ED-AB4C-47B5A162E0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854C21FE-81C1-47ED-AB4C-47B5A162E0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854C21FE-81C1-47ED-AB4C-47B5A162E0E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +70,9 @@ Global
 		{3F84676F-4744-4CF4-A962-50982010FF11} = {50FF9E8D-8115-4E47-A585-08E4DBDCF966}
 		{A3DF9BF5-B052-4EFE-98FA-C84A2F7D3398} = {50FF9E8D-8115-4E47-A585-08E4DBDCF966}
 		{9DB5C96B-6DBD-4D65-BD9B-858A83B84096} = {50FF9E8D-8115-4E47-A585-08E4DBDCF966}
+		{E754050E-B2D7-4EE9-8107-847CBE92AE61} = {7F730FB6-BF85-4E15-9DBE-2C3F46DDF45C}
+		{4DBA5B5B-2DFB-41D8-97AF-600D867F7483} = {7F730FB6-BF85-4E15-9DBE-2C3F46DDF45C}
+		{854C21FE-81C1-47ED-AB4C-47B5A162E0E3} = {50FF9E8D-8115-4E47-A585-08E4DBDCF966}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7438C8EF-53E3-4AFE-9669-EB9994E6FACF}

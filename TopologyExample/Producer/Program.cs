@@ -1,4 +1,6 @@
+using CommandConsumer;
 using MassTransit;
+using Producer;
 using Producer.HeadersExchangesSolution;
 using Producer.PolymorphicRouting;
 using Producer.PolymorphicRoutingV2;
@@ -9,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddSendObserver<SendObserverTest>();
 builder.Services.AddMassTransit(x =>
 {
   // A Transport
@@ -36,16 +38,28 @@ builder.Services.AddMassTransit(x =>
     cfg.Publish<PaymentProcessed>(x => x.ExchangeType = ExchangeType.Topic);
     #endregion
 
+
+    #region Polymorphism routing
+    cfg.Message<EventMessage>(x => x.SetEntityName("Contracts.EventMessage"));
+    cfg.Message<OrderCreated>(x => x.SetEntityName("Contracts.OrderCreated"));
+    cfg.Message<UserUpdated>(x => x.SetEntityName("Contracts.UserUpdated"));
+    #endregion
+
+
     #region Polymorphism routing v2
     // Varianta cu base class si child classes
+
     cfg.Message<WebsitePayProcessed>(x => x.SetEntityName("Contracts.WebsitePayProcessed"));
     cfg.Publish<WebsitePayProcessed>();
 
     cfg.Message<DriverPayProcessed>(x => x.SetEntityName("Contracts.DriverPayProcessed"));
     cfg.Publish<DriverPayProcessed>();
+    //cfg.Publish<EventMessage>();
     #endregion
 
+    #region Header exchange
     cfg.Message<PayReceived>(x => x.SetEntityName("pay-received"));
+    #endregion
 
     cfg.Host("amqp://guest:guest@localhost:5672", h =>
       {
@@ -66,7 +80,7 @@ app.UseHttpsRedirection();
 
 app.MapPost("/topic-exchanges", async (IPublishEndpoint provider) =>
 {
-  await provider.Publish(new PaymentProcessed { Origin = "REGULAR", TransactionId = Guid.NewGuid() });
+  await provider.Publish(new PaymentProcessed { Origin = "WEBSITE", TransactionId = Guid.NewGuid() });
 })
 .WithName("PublishTopicExchange");
 
@@ -95,5 +109,20 @@ app.MapPost("/headers-exchange", async (IPublishEndpoint provider) =>
   });
 })
 .WithName("PublishOnHeadersExchange");
+
+
+app.MapPost("/create-terminal-transaction", async (ISendEndpointProvider sendProvider) =>
+{
+  var endpoint = await sendProvider.GetSendEndpoint(new Uri("queue:create-terminal-transaction"));
+
+  for (int i = 0; i < 100; i++)
+  {
+    await endpoint.Send(new CreateTerminalTransactionCommand
+    {
+      MerchantReference = i.ToString()
+    });
+  }
+});
+
 
 app.Run();

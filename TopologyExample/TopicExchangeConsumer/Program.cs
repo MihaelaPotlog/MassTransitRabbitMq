@@ -4,7 +4,6 @@ using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMassTransit(x =>
 {
   // Topic exchange
@@ -59,13 +58,6 @@ builder.Services.AddMassTransit(x =>
 
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-  app.UseSwagger();
-  app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 
